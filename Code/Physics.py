@@ -14,7 +14,7 @@ def compute_system_accelerations(pos, mass, acc):
         acc[i,2] = 0.0
 
     # calc new acc
-    for i in prange(N):  # parallel outer loop
+    for i in prange(N):  # parraleller außen loop
         for j in range(N):
             if i == j:
                 continue
@@ -34,7 +34,7 @@ def compute_system_accelerations(pos, mass, acc):
 
 @njit(parallel=True)
 def verlet_step(pos, vel, mass, acc, dt_days):
-    dt = dt_days * 86400.0  # convert days → seconds
+    dt = dt_days * 86400.0  # konvertieren tage in skunden
     N = pos.shape[0]
     
     # Halber Schritt vel Update

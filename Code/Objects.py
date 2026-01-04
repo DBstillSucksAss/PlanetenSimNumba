@@ -6,14 +6,14 @@ class ObjectContainer:
     def __init__(self, num_objects):
         self.N = num_objects
         
-        # Numeric arrays (JIT)
+        # Numerisches array (JIT)
         self.ids = np.zeros(self.N, dtype=np.int64)
         self.mass = np.zeros(self.N, dtype=np.float64)
         self.pos = np.zeros((self.N, 3), dtype=np.float64)
         self.vel = np.zeros((self.N, 3), dtype=np.float64)
         self.acc = np.zeros((self.N, 3), dtype=np.float64)
         
-        # Metadata (strings, not JIT)
+        # Metadaten (strings, nicht JIT)
         self.names = np.empty(self.N, dtype=object)
         self.classes = np.empty(self.N, dtype=object)
     

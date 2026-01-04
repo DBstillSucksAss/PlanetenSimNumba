@@ -5,8 +5,8 @@ import Objects
 class Reader:
     def ReadCSVToObjectContainer(self,Filepath:str) -> Objects.ObjectContainer:
 
-        AU_TO_M = 1.495978707e11        # 1 AU in meters
-        AU_PER_DAY_TO_M_S = AU_TO_M / 86400.0  # AU/day → m/s
+        AU_TO_M = 1.495978707e11        # 1 AU in meter
+        AU_PER_DAY_TO_M_S = AU_TO_M / 86400.0  # AU/day in m/s
 
 
         df = pd.read_csv(Filepath)
@@ -14,11 +14,11 @@ class Reader:
         N = len(df)
         container = Objects.ObjectContainer(N)
 
-        #string metadata
+        #string metadaten
         container.names[:] = df['name'].values
         container.classes[:] = df['class'].values
 
-        #numeric data
+        #numerische daten
         container.ids[:] = df['id'].values.astype(np.int64)
         container.mass[:] = df['mass'].values.astype(np.float64)
 
